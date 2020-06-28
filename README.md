@@ -7,7 +7,7 @@ I added new features or extended existing ones. Please check Lexer, Parser, Expr
 
 Diet is a **RESTful** API to store calorie data of meals in order to check a diet plan. Currently, it supports only Account and Meal management. 
 
-## Diet.CodeBase
+## Diet.Code
 
 The code base is implemented to be extensible and maintainable. It runs on .NET Core. It was architected to be a *Feature Oriented* monolithic application. Main implementation principle was [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it). 
 
