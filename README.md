@@ -1,9 +1,12 @@
-﻿# Init
+# Diet
+A demo application for a job interview. 
+The main task was to implement a filter feature. Please check Lexer, Parser, ExpressionProvider implementations. 
+
+# Diet.Init
 
 Diet is a **RESTful** API to store calorie data of meals in order to check a diet plan. Currently, it supports only Account and Meal management. 
-It was a demo application for a job interview. 
 
-# CodeBase
+# Diet.CodeBase
 
 The code base is implemented to be extensible and maintainable. It runs on .NET Core. It was architected to be a *Feature Oriented* monolithic application. Main implementation principle was [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it). 
 
