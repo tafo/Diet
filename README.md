@@ -1,5 +1,5 @@
 # Diet
-A demo application for a job interview. 
+This was a demo application for a job interview. 
 The main task was to implement a filter feature. Please check Lexer, Parser, ExpressionProvider implementations. 
 
 ## Diet.Init
