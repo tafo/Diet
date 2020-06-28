@@ -1,0 +1,26 @@
+Line break = 135 chars
+
+{
+	"//" shows finished tasks
+}
+
+//Test "Close Merge Request"
+//Test "Create an issue" - I planned to test this with unique account-email. But, this is done with another issue.
+
+Instead of "User" I used "Account" as a table name in order to avoid name conflicts with used packages
+	There was already an object named User in AspNetCore
+	We can be another User for an external service
+	Etc
+
+Nutritionix
+	ApplicationId = a9d405a3
+	ApplicationKey = 115ce4c8ee75d20905aa09e97756e86f
+	Request Header Params
+		x-app-id
+		x-app-key
+		x-remote-user
+			Set this to 0 in development mode
+
+Implement api versioning
+
+DefaultAdminPassword = 8MggZmuNbF
