@@ -26,10 +26,12 @@ It is using AspNetCore 3.1 with following technologies and methodologies
 ## Diet.Requirements
 
 **Main Requirement**
-The API should provide filter capabilities for all endpoints that return a list of elements. The API filtering should allow using parenthesis for defining operations precedence and use any combination of the available fields. 
 
-Example:
+The API should provide filter capabilities for all endpoints that return a list of elements. The API filtering should allow using parenthesis for defining operations precedence and use any combination of the available fields. Check following example.
+
 >(date eq '2016-05-01') AND ((number_of_calories gt 20) OR (number_of_calories lt 10)).
+
+**Other Requirements**
 
 * The API must be able to return data in the JSON format.
 * API Users must be able to create an account and log in.
