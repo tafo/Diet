@@ -4,7 +4,7 @@ Diet is a **RESTful** API to store calorie data of meals in order to check a die
 
 It was implemented to be a *Feature Oriented Application* with .Net Core. 
 
-Its main feature is filtering via request parameters. Please check **[Lexer](https://github.com/tafo/Diet/blob/master/Diet.Api/Features/Filter/Lexer.cs)**, **[Parser](https://github.com/tafo/Diet/blob/master/Diet.Api/Features/Filter/Parser.cs)**, **[ExpressionProvider](https://github.com/tafo/Diet/blob/master/Diet.Api/Features/Filter/ExpressionProvider.cs)** implementations of filtering feature. 
+Users can filter response data by request paratemeters. Filtering feature is implemented with **[Lexer](https://github.com/tafo/Diet/blob/master/Diet.Api/Features/Filter/Lexer.cs)**, **[Parser](https://github.com/tafo/Diet/blob/master/Diet.Api/Features/Filter/Parser.cs)**, **[Compiler(ExpressionProvider)](https://github.com/tafo/Diet/blob/master/Diet.Api/Features/Filter/ExpressionProvider.cs)**.
 
 ## Diet.Code | Diet.Stack
 
