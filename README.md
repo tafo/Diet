@@ -14,9 +14,9 @@ The code base is implemented to be extensible and maintainable. It runs on .NET 
 It is using AspNetCore 3.1 with following technologies and methodologies
 
 * CQRS
-* [MediatR](https://github.com/jbogard/MediatR) as a mediator implementation
-* [Command Query Responsibility Segregation](https://martinfowler.com/bliki/CQRS.html)
-* Controller(Request) and Feature(RequestHandler) communicate through the mediator. 
+  * [MediatR](https://github.com/jbogard/MediatR) as a mediator implementation
+  * [Command Query Responsibility Segregation](https://martinfowler.com/bliki/CQRS.html)
+  * Controller(Request) and Feature(RequestHandler) communicate through the mediator. 
 * [JSON Web Token](https://jwt.io/introduction/) authentication with claims
 * Api Documentation and Swagger Api Explorer with [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 * [Entity Framework Core](https://github.com/dotnet/efcore) as an Object Relational Mapper
