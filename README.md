@@ -25,6 +25,12 @@ It is using AspNetCore 3.1 with following technologies and methodologies
 
 ## Diet.Requirements
 
+**Main Requirement**
+The API should provide filter capabilities for all endpoints that return a list of elements. The API filtering should allow using parenthesis for defining operations precedence and use any combination of the available fields. 
+
+Example:
+>(date eq '2016-05-01') AND ((number_of_calories gt 20) OR (number_of_calories lt 10)).
+
 * The API must be able to return data in the JSON format.
 * API Users must be able to create an account and log in.
 * All API calls must be authenticated.
@@ -39,10 +45,6 @@ It is using AspNetCore 3.1 with following technologies and methodologies
   * An admin would be able to CRUD all records and users.
 * User setting – Expected number of calories per day.
   * Each entry should have an extra boolean field set to true if the total for that day is less than expected number of calories per day, otherwise should be false.
-* The API should provide filter capabilities for all endpoints that return a list of elements. 
-  * The API filtering should allow using parenthesis for defining operations precedence and use any combination of the available fields.
-  * Example
-    * > (date eq '2016-05-01') AND ((number_of_calories gt 20) OR (number_of_calories lt 10)).
 
 ## Diet.Current
 * Supported Binary Operators
