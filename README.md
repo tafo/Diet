@@ -39,22 +39,12 @@ It is using AspNetCore 3.1 with following technologies and methodologies
   * An admin would be able to CRUD all records and users.
 * User setting – Expected number of calories per day.
   * Each entry should have an extra boolean field set to true if the total for that day is less than expected number of calories per day, otherwise should be false.
-* The API should provide filter capabilities for all endpoints that return a list of elements
+* The API should provide filter capabilities for all endpoints that return a list of elements. 
+  * The API filtering should allow using parenthesis for defining operations precedence and use any combination of the available fields.
+  * Example
+    * > (date eq '2016-05-01') AND ((number_of_calories gt 20) OR (number_of_calories lt 10)).
 
-The API filtering should allow using parenthesis for defining operations precedence and use any combination of the available fields. 
-	The supported operations should at least include 
-		or, 
-		and, 
-		eq (equals), 
-		ne (not equals), 
-		gt (greater than), 
-		lt (lower than).
-
-		Example -> (date eq '2016-05-01') AND ((number_of_calories gt 20) OR (number_of_calories lt 10)).
-
-
-## Diet.Remarks
-
+## Diet.Current
 * Supported Binary Operators
   * Or,
   * And,
@@ -64,11 +54,10 @@ The API filtering should allow using parenthesis for defining operations precede
   * GreaterThanOrEqual as ge,
   * LessThan as lt,
   * LessThanOrEqual as le
-
 * Supported Unary Operators
   * Minus as "-"
   * Not as "not"
-
 * DateTime, Bollean, and Decimal values must be enclosed with quotes
 
+## Diet.Remarks
 (!Complete) >> To be continued...
