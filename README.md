@@ -1,6 +1,7 @@
 ﻿# Init
 
 Diet is a **RESTful** API to store calorie data of meals in order to check a diet plan. Currently, it supports only Account and Meal management. 
+It was a demo application for a job interview. 
 
 # CodeBase
 
