@@ -1,18 +1,14 @@
 # Diet
-This was a demo application for a job interview. The main task was to implement a filter feature. 
-
-I added new features or extended existing ones. Please check **Lexer, Parser, ExpressionProvider** implementations. 
-
-## Diet.Init
 
 Diet is a **RESTful** API to store calorie data of meals in order to check a diet plan. Currently, it supports only Account and Meal management. 
 
-## Diet.Code
+It was implemented to be a *Feature Oriented Application* with .Net Core. 
 
-The code base is implemented to be extensible and maintainable. It runs on .NET Core. It was architected to be a *Feature Oriented* monolithic application. Main implementation principle was [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it). 
+Its main feature is filtering via request parameters. Please check **Lexer, Parser, ExpressionProvider** implementations of filtering feature. 
 
-It is using AspNetCore 3.1 with following technologies and methodologies
+## Diet.Code | Diet.Stack
 
+* AspNetCore 3.1
 * CQRS
   * [MediatR](https://github.com/jbogard/MediatR) as a mediator implementation
   * [Command Query Responsibility Segregation](https://martinfowler.com/bliki/CQRS.html)
@@ -33,7 +29,6 @@ The API should provide filter capabilities for all endpoints that return a list 
 >(date eq '2016-05-01') AND ((number_of_calories gt 20) OR (number_of_calories lt 10)).
 
 **Other Requirements**
-
 * The API must be able to return data in the JSON format.
 * API Users must be able to create an account and log in.
 * All API calls must be authenticated.
@@ -50,6 +45,7 @@ The API should provide filter capabilities for all endpoints that return a list 
   * Each entry should have an extra boolean field set to true if the total for that day is less than expected number of calories per day, otherwise should be false.
 
 ## Diet.Current
+
 * Supported Binary Operators
   * Or,
   * And,
