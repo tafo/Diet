@@ -61,6 +61,11 @@ namespace Diet.Tests
             return ServiceProvider.GetService<IMediator>().Send(request);
         }
 
+        public Task SendAsync<TResponse>(IRequest request)
+        {
+            return ServiceProvider.GetService<IMediator>().Send(request);
+        }
+
         public Task InsertAsync<TEntity>(TEntity entity) where TEntity : Entity
         {
             return ExecuteDbContextAsync(db =>

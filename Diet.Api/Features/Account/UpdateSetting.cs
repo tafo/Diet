@@ -42,7 +42,7 @@ namespace Diet.Api.Features.Account
                 _currentAccount = currentAccount;
             }
 
-            public async Task<Unit> Handle(Request request, CancellationToken cancellationToken)
+            public async Task Handle(Request request, CancellationToken cancellationToken)
             {
                 var setting = await _context.AccountSettings.SingleOrDefaultAsync(x => x.AccountId == _currentAccount.Id,
                     cancellationToken);
@@ -60,8 +60,6 @@ namespace Diet.Api.Features.Account
                 setting.TargetCalories = request.TargetCalories;
 
                 await _context.SaveChangesAsync(cancellationToken);
-
-                return default;
             }
         }
     }

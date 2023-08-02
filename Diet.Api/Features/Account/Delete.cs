@@ -17,9 +17,14 @@ namespace Diet.Api.Features.Account
     /// </summary>
     public class Delete
     {
-        public class Request : IRequest
+        public class Request : IRequest<Response>
         {
             public string Email { get; set; }
+        }
+
+        public class Response
+        {
+            
         }
 
         public class Validator : AbstractValidator<Request>
@@ -30,7 +35,7 @@ namespace Diet.Api.Features.Account
             }
         }
 
-        public class Handler : IRequestHandler<Request>
+        public class Handler : IRequestHandler<Request, Response>
         {
             private readonly DietContext _context;
 
@@ -39,7 +44,7 @@ namespace Diet.Api.Features.Account
                 _context = context;
             }
 
-            public async Task<Unit> Handle(Request request, CancellationToken cancellationToken)
+            public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
             {
                 var account = await _context.Accounts.SingleOrDefaultAsync(x => x.Email == request.Email, cancellationToken);
 
@@ -52,7 +57,7 @@ namespace Diet.Api.Features.Account
                 
                 await _context.SaveChangesAsync(cancellationToken);
                 
-                return default;
+                return new Response();
             }
         }
     }

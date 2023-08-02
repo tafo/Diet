@@ -40,15 +40,13 @@ namespace Diet.Api.Features.Account
                 _passwordHasher = passwordHasher;
             }
             
-            public async Task<Unit> Handle(Request request, CancellationToken cancellationToken)
+            public async Task Handle(Request request, CancellationToken cancellationToken)
             {
                 var account = await _context.Accounts.SingleOrDefaultAsync(x => x.Id == _currentAccount.Id, cancellationToken);
 
                 account.PasswordHash = _passwordHasher.HashPassword(request.Password);
 
                 await _context.SaveChangesAsync(cancellationToken);
-
-                return default;
             }
         }
     }

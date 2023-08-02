@@ -30,6 +30,7 @@ namespace Diet.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ExceptionMiddleware>();
             AddJwt(services);
             AddIntegrationServices(services);
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
@@ -95,9 +96,11 @@ namespace Diet.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
+            app.UseMiddleware<ExceptionMiddleware>();
+            
             app.UseMiniProfiler();
 
-            app.UseExceptionHandler("/error");
+            //app.UseExceptionHandler("/error");
 
             app.UseRouting();
 
@@ -134,7 +137,6 @@ namespace Diet.Api
         {
             services.AddDbContext<DietContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DietConnection")));
-            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(TransactionPipelineBehavior<,>));
             services.AddSingleton(typeof(IClock), typeof(Clock));
             services.AddScoped(typeof(ICurrentAccountProvider), typeof(CurrentAccountProvider));
             services.AddScoped(typeof(IExpressionProvider<>), typeof(ExpressionProvider<>));

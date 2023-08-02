@@ -19,7 +19,7 @@ namespace Diet.Api.Features.Meal
 {
     public class Update
     {
-        public class Request : IRequest<Unit>
+        public class Request : IRequest
         {
             public Guid Id { get; set; }
             [DataType(DataType.Date)]
@@ -58,7 +58,7 @@ namespace Diet.Api.Features.Meal
                 _caloriesService = caloriesService;
             }
 
-            public async Task<Unit> Handle(Request request, CancellationToken cancellationToken)
+            public async Task Handle(Request request, CancellationToken cancellationToken)
             {
                 var query = _context.Meals.Where(x => x.Id == request.Id);
 
@@ -102,8 +102,6 @@ namespace Diet.Api.Features.Meal
                 meal.CalorieStatus = account?.CurrentCalories.GetValueOrDefault() + request.Calories - meal.Calories < account?.TargetCalories;
 
                 await _context.SaveChangesAsync(cancellationToken);
-
-                return default;
             }
         }
     }

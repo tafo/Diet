@@ -39,7 +39,7 @@ namespace Diet.Api.Features.Meal
                 _currentAccount = currentAccount;
             }
 
-            public async Task<Unit> Handle(Request request, CancellationToken cancellationToken)
+            public async Task Handle(Request request, CancellationToken cancellationToken)
             {
                 var meal = await _context.Meals.SingleOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
 
@@ -56,8 +56,6 @@ namespace Diet.Api.Features.Meal
                 _context.Meals.Remove(meal);
 
                 await _context.SaveChangesAsync(cancellationToken);
-
-                return default;
             }
         }
     }

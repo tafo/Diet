@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Diet.Api.Features.Account
 {
     [Route("[controller]")]
-    public class AccountController
+    public class AccountController : ControllerBase
     {
         private readonly IMediator _mediator;
         public AccountController(IMediator mediator)
@@ -14,7 +14,7 @@ namespace Diet.Api.Features.Account
             _mediator = mediator;
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<Create.Response> Create([FromBody] Create.Request request)
         {
             return await _mediator.Send(request);
@@ -26,14 +26,14 @@ namespace Diet.Api.Features.Account
             return await _mediator.Send(request);
         }
 
-        [HttpGet]
+        [HttpGet("index")]
         [Authorize(Roles = "Admin, UserManager")]
         public async Task<Index.Response> Index([FromQuery]Index.Request request)
         {
             return await _mediator.Send(request);
         }
 
-        [HttpPut("setting")]
+        [HttpPost("setting")]
         [Authorize]
         public async Task<IActionResult> UpdateSetting([FromBody] UpdateSetting.Request request)
         {
@@ -41,20 +41,19 @@ namespace Diet.Api.Features.Account
             return new NoContentResult();
         }
 
-        [HttpPut]
-        [Authorize]
+        [HttpPost("update")]
+        //[Authorize]
         public async Task<IActionResult> Update([FromBody] Update.Request request)
         {
             await _mediator.Send(request);
             return new NoContentResult();
         }
 
-        [HttpDelete]
-        [Authorize(Roles = "Admin, UserManager")]
-        public async Task<IActionResult> Delete([FromBody] Delete.Request request)
+        [HttpPost("delete")]
+        //[Authorize(Roles = "Admin, UserManager")]
+        public async Task<Delete.Response> Delete([FromBody] Delete.Request request)
         {
-            await _mediator.Send(request);
-            return new NoContentResult();
+            return await _mediator.Send(request);
         }
     }
 }
