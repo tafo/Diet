@@ -36,7 +36,6 @@ namespace Diet.Api
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
             services.AddSingleton<ITokenProvider, TokenProvider>();
             services.AddMemoryCache();
-            services.AddMiniProfiler().AddEntityFramework();
             services.AddMediatR(typeof(Startup));
 
             AddEnvironmentServices(services);
@@ -97,8 +96,6 @@ namespace Diet.Api
         public void Configure(IApplicationBuilder app)
         {
             app.UseMiddleware<ExceptionMiddleware>();
-            
-            app.UseMiniProfiler();
 
             //app.UseExceptionHandler("/error");
 

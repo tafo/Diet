@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diet.Api", "Diet.Api\Diet.Api.csproj", "{A022A646-15DC-4248-B0CD-E41A895B5E63}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diet.Tests", "Diet.Tests\Diet.Tests.csproj", "{62D7704E-A435-4232-BE62-5A78284E5F40}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{7BC2B8DE-585C-4592-8082-65A2D7D3982D}"
 	ProjectSection(SolutionItems) = preProject
 		docs\Development.txt = docs\Development.txt
 		docs\Requirements.txt = docs\Requirements.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diet.IntegrationTests", "Diet.IntegrationTests\Diet.IntegrationTests.csproj", "{957567C1-609A-4685-8BC3-64AB643D71AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{A022A646-15DC-4248-B0CD-E41A895B5E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A022A646-15DC-4248-B0CD-E41A895B5E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A022A646-15DC-4248-B0CD-E41A895B5E63}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62D7704E-A435-4232-BE62-5A78284E5F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62D7704E-A435-4232-BE62-5A78284E5F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62D7704E-A435-4232-BE62-5A78284E5F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62D7704E-A435-4232-BE62-5A78284E5F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{957567C1-609A-4685-8BC3-64AB643D71AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{957567C1-609A-4685-8BC3-64AB643D71AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{957567C1-609A-4685-8BC3-64AB643D71AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{957567C1-609A-4685-8BC3-64AB643D71AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

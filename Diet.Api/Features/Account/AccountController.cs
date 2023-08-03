@@ -1,10 +1,27 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using FluentValidation.Results;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 
 namespace Diet.Api.Features.Account
 {
+    // public static class Extensions 
+    // {
+    //     public static void AddToModelState(this ValidationResult result, ModelStateDictionary modelState) 
+    //     {
+    //         foreach (var error in result.Errors) 
+    //         {
+    //             modelState.AddModelError(error.PropertyName, error.ErrorMessage);
+    //         }
+    //     }
+    // }
+    
     [Route("[controller]")]
     public class AccountController : ControllerBase
     {
@@ -15,9 +32,15 @@ namespace Diet.Api.Features.Account
         }
 
         [HttpPost("create")]
-        public async Task<Create.Response> Create([FromBody] Create.Request request)
+        public async Task<IActionResult> Create([FromBody] Create.Request request, [FromServices] IValidator<Create.Request> requestValidator)
         {
-            return await _mediator.Send(request);
+            var validationResult = await requestValidator.ValidateAsync(request);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors);
+            }
+
+            return Ok(await _mediator.Send(request));
         }
 
         [HttpGet("token")]

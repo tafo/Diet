@@ -28,7 +28,7 @@ namespace Diet.Api.Features.Account
         {
             public Validator()
             {
-                RuleFor(x => x.Email).NotEmpty().EmailAddress().MaximumLength(1024);
+                RuleFor(x => x.Email).NotEmpty().EmailAddress().MaximumLength(1024).WithMessage("Invalid Email");
                 RuleFor(x => x.Password).NotEmpty().MinimumLength(3);
             }
         }
@@ -48,7 +48,7 @@ namespace Diet.Api.Features.Account
 
             public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
             {
-                if (await _context.Accounts.AnyAsync(x => x.Email == request.Email, cancellationToken))
+                if(await _context.Accounts.AnyAsync(x => x.Email == request.Email, cancellationToken))
                 {
                     throw new RestException(HttpStatusCode.Conflict, ResourceConstant.AlreadyUsedEmail);
                 }

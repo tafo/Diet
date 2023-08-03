@@ -11,7 +11,6 @@ namespace Diet.Api.Data
 {
     public class DietContext : DbContext
     {
-        private IDbContextTransaction _transaction;
         private readonly IPasswordHasher _passwordHasher;
 
         public DietContext(DbContextOptions options, [FromServices] IPasswordHasher passwordHasher) : base(options)
@@ -61,54 +60,6 @@ namespace Diet.Api.Data
                 b.HasKey(e => e.Id);
                 b.Property(e => e.TargetCalories).IsRequired().HasColumnType("decimal(6,2)");
             });
-        }
-
-        public async Task BeginTransactionAsync()
-        {
-            if (_transaction != null)
-            {
-                return;
-            }
-
-            _transaction = await Database.BeginTransactionAsync(IsolationLevel.ReadCommitted).ConfigureAwait(false);
-        }
-
-        public async Task CommitTransactionAsync()
-        {
-            try
-            {
-                await SaveChangesAsync().ConfigureAwait(false);
-                _transaction?.Commit();
-            }
-            catch
-            {
-                RollbackTransaction();
-                throw;
-            }
-            finally
-            {
-                if (_transaction != null)
-                {
-                    _transaction.Dispose();
-                    _transaction = null;
-                }
-            }
-        }
-
-        public void RollbackTransaction()
-        {
-            try
-            {
-                _transaction?.Rollback();
-            }
-            finally
-            {
-                if (_transaction != null)
-                {
-                    _transaction.Dispose();
-                    _transaction = null;
-                }
-            }
         }
     }
 }
